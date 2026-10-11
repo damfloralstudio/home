@@ -16,11 +16,22 @@ document.querySelectorAll('[data-request]').forEach(button => button.addEventLis
 }));
 requestDialog.querySelector('.request-close').addEventListener('click', () => requestDialog.close());
 requestDialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); requestOpener?.focus(); });
-requestForm.addEventListener('submit', event => {
+// Inquiries are delivered by Formspree (form action). Sent in the background so the visitor stays on the page.
+requestForm.addEventListener('submit', async event => {
  event.preventDefault(); if(!requestForm.reportValidity()) return;
- const f = new FormData(requestForm);
- const subject = `DAM Floral Studio — ${f.get('service')}`;
- const body = `Hello DAM Floral Studio,\n\nName: ${f.get('name')}\nEmail: ${f.get('email')}\nService: ${f.get('service')}\nPreferred date: ${f.get('date') || 'Not specified'}\nLocation: ${f.get('location') || 'Not specified'}\nEstimated budget: ${f.get('budget') || 'Not specified'}\n\n${f.get('message')}\n`;
- window.location.href = `mailto:damfloralstudio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
- document.querySelector('#request-status').textContent = 'Your email draft is ready to open. Please press Send in your email app. If nothing opens, email damfloralstudio@gmail.com directly.';
+ const status = document.querySelector('#request-status');
+ const submitButton = requestForm.querySelector('.request-button');
+ requestForm.elements._subject.value = `DAM Floral Studio — ${requestForm.elements.service.value}`;
+ submitButton.disabled = true; submitButton.textContent = 'Sending…'; status.textContent = '';
+ try {
+  const response = await fetch(requestForm.action, {method: 'POST', body: new FormData(requestForm), headers: {Accept: 'application/json'}});
+  if(!response.ok) throw new Error(`Formspree responded ${response.status}: ${await response.text()}`);
+  requestForm.reset();
+  status.textContent = 'Thank you — your request has been sent. We’ll be in touch soon.';
+ } catch(err) {
+  console.error('Inquiry submission failed:', err);
+  status.textContent = 'Something went wrong. Please try again or email damfloralstudio@gmail.com directly.';
+ } finally {
+  submitButton.disabled = false; submitButton.textContent = 'Send request';
+ }
 });
