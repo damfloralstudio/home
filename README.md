@@ -1,36 +1,33 @@
 # DAM Floral Studio
 
-Static English-language portfolio for GitHub Pages. No build step required.
+Website for [DAM Floral Studio](https://damfloralstudio.com), a floral design and spatial styling studio serving New Jersey and New York City.
 
-## Preview
-Open `preview.html` for a standalone preview including photos and fonts. `index.html` is the deployable page and must stay with its assets.
+A single static page hosted on GitHub Pages. No build step and no dependencies.
 
-## GitHub Pages
-Upload the files and assets directory to your repository root. Select the main branch and root in Settings → Pages. Set the custom domain to damfloralstudio.com and configure your registrar using https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site . Enable HTTPS when available. Nothing has been published or connected automatically.
+## Files
 
-## Current design
-Text wordmark at upper left; Instagram and email icons at upper right. Public location: New Jersey | New York City. No personal founder name. Seventeen gallery photos plus the introductory space photograph; space work appears first, followed by events, bridal flowers, and seasonal arrangements. Full compositions use contain within a consistent two-column grid on desktop and mobile. No overlap, captions, or category headings. A subtle display-only tone treatment leaves the source assets unchanged.
+| Path | Purpose |
+|---|---|
+| `index.html` | The page: header, hero, gallery, studio copy, footer, image viewer and inquiry form |
+| `style.css` | All styles |
+| `script.js` | Image viewer, inquiry form (opens a prefilled email draft) and footer year |
+| `assets/` | Photos, logo and hero title artwork |
+| `assets/fonts/` | Self-hosted fonts and their licenses |
+| `CNAME` | Custom domain for GitHub Pages. **Do not delete or rename.** |
+| `.nojekyll` | Makes GitHub Pages serve the files as-is |
+| `robots.txt`, `sitemap.xml` | Search engine configuration |
 
-Inquiry/order buttons open a form with General inquiry, Space styling, Floral Workshop, Subscription, Event and Custom order. Continue to email opens a prefilled draft addressed to damfloralstudio@gmail.com. Visitors must press Send in their email app. Orders are confirmed after a reply; no payment or backend delivery is included.
+## Local preview
 
-Some supplied assets were generated images. No new imagery was generated for the website. Workshop images exclude faces in the exported crop. Review work permissions before publishing.
+Open `index.html` in a browser. All paths are relative, so `assets/` must stay next to it.
 
-Bundled Latin Modern fonts use the included GUST Font License. No analytics or third-party font requests.
+## Deployment
 
-Verification: local asset paths, anchors, JavaScript syntax and inquiry email-draft behavior checked. Actual browser rendering could not be verified in this environment.
+GitHub Pages publishes from the root of the `main` branch. Changes go live a minute or two after they reach `main`.
 
-Latest revision: original supplied DAM logo enlarged at upper right; tagline An artful sense of place. Gallery uses equal 4:5 frames with full images contained and centered on desktop and mobile. Full dol-table image replaces the rice-cake close-up. The marked MARY PHOTOGRAPHY photo is excluded and replaced with an unmarked supplied bouquet; no watermark was removed.
+- The custom domain is `damfloralstudio.com`, set by the `CNAME` file. `www.damfloralstudio.com` redirects to it.
+- Every file in this repository is publicly accessible on the live site, so keep private notes out of the repo.
 
-Current revision: original PNG logo at upper left, slightly larger. Requested studio copy centered with separate location line and corrected punctuation. Workshop photo removed and replaced with supplied seasonal florals. Final odd gallery photo centered across both columns at all screen widths.
+## Licenses
 
-Version 8: Updated supplied logo, slightly larger header mark; upright classic hero serif; Hoboken-based introduction with New Jersey | New York City service area.
-
-Version 9: Reduced header logo size by approximately 22% to create visual separation from the hero title. Typography concepts provided separately for review.
-
-Version 10: Hero uses bundled Pinyon Script (SIL OFL) for the selected classic calligraphy direction. title-preview.png is a typography specimen, not a browser screenshot.
-
-Version 11: Selected option 02 classic serif italic for hero title; final studio introduction now says floral displays.
-
-Version 12: Hero title now uses transparent lettering artwork extracted through image generation from the selected option 02 reference; accessible heading image alt retained.
-
-Version 13: Lighter serif italic title artwork, softer charcoal and reduced headline width for a quieter visual hierarchy.
+Fonts in `assets/fonts/` are distributed under the licenses included in that folder. Photography and brand assets are © DAM Floral Studio and may not be reused without permission.
