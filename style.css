@@ -66,7 +66,7 @@
 .tg-product h2{font-family:'DAM Editorial',Georgia,serif;font-size:30px;letter-spacing:-.01em;line-height:1.15;margin:0 0 6px}
 .tg-price{font-size:13px;letter-spacing:.14em;margin:0 0 14px}
 .tg-desc{font-size:15px;line-height:1.7;color:var(--muted);margin:0 0 22px}
-.tg-desc strong{font-weight:400;color:var(--ink);letter-spacing:.02em}
+.tg-nowrap{white-space:nowrap}.tg-desc p{margin:0 0 12px}.tg-desc p:last-child{margin-bottom:0}
 .tg-stepper{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
 .tg-qty-label{margin-right:auto;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 .tg-max{color:var(--muted);letter-spacing:.06em;text-transform:none}

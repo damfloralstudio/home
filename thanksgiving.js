@@ -1,6 +1,8 @@
 // Thanksgiving pre-order page: quantities, pickup slot, name, then a checkout
 // link from the pre-order API (Cloudflare Worker), which redirects to Square.
 // Prices and limits here are for display only; the API enforces the real ones.
+// `name`/`plural` are short names for the order summary line; the full product
+// names (with "· Designer’s Choice") are on the product cards and in Square.
 
 const CHECKOUT_URL = 'https://preorder-api.damfloralstudio.workers.dev/api/checkout';
 const CLOSES_AT = '2026-11-15T23:59:59-05:00';
@@ -10,7 +12,7 @@ const SUBMIT_LABEL = 'Continue to secure checkout';
 
 const PRODUCTS = {
   bouquet: { name: 'Thanksgiving Bouquet', plural: 'Thanksgiving Bouquets', price: 50, max: 3 },
-  arrangement: { name: 'Thanksgiving Arrangement', plural: 'Thanksgiving Arrangements', price: 60, max: 2 },
+  arrangement: { name: 'Pumpkin Floral Arrangement', plural: 'Pumpkin Floral Arrangements', price: 60, max: 2 },
 };
 
 // Analytics must never break checkout (blocked script, slow load, errors).
