@@ -54,8 +54,7 @@
 .tg-main{max-width:1150px;margin:0 auto;padding:10px 5% 72px}
 .tg-intro{max-width:680px;margin:0 auto 48px;text-align:center}
 .tg-intro .eyebrow{margin-bottom:14px}
-.tg-intro h1{font-family:'DAM Editorial',Georgia,serif;font-size:clamp(46px,5.4vw,72px);letter-spacing:-.03em;line-height:1.08;margin:0 0 20px}
-.tg-intro h1 em{font-style:italic}
+.tg-intro h1{font-family:'DAM Editorial',Georgia,serif;font-style:italic;font-size:clamp(46px,5.4vw,72px);letter-spacing:-.03em;line-height:1.08;margin:0 0 20px}
 .tg-lede{font-family:'DAM Editorial',Georgia,serif;font-size:19px;letter-spacing:.015em;line-height:1.65;margin:0}
 .tg-form fieldset{border:0;margin:0;padding:0;min-width:0}
 .tg-form[hidden],.tg-closed[hidden]{display:none}
