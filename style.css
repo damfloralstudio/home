@@ -49,3 +49,68 @@
 /* Lighter, quieter title balanced with the portfolio photograph. */
 .hero h1.artwork-title{max-width:510px;margin-bottom:24px}.artwork-title img{opacity:.88}
 @media(max-width:600px){.hero h1.artwork-title{width:90%;max-width:370px;margin-bottom:22px}}
+
+/* ===== Thanksgiving pre-order pages (thanksgiving.html, thanksgiving-thanks.html) ===== */
+.tg-main{max-width:1150px;margin:0 auto;padding:10px 5% 72px}
+.tg-intro{max-width:680px;margin:0 auto 48px;text-align:center}
+.tg-intro .eyebrow{margin-bottom:14px}
+.tg-intro h1{font-family:'DAM Editorial',Georgia,serif;font-style:italic;font-size:clamp(46px,5.4vw,72px);letter-spacing:-.03em;line-height:1.08;margin:0 0 20px}
+.tg-lede{font-family:'DAM Editorial',Georgia,serif;font-size:19px;letter-spacing:.015em;line-height:1.65;margin:0}
+.tg-form fieldset{border:0;margin:0;padding:0;min-width:0}
+.tg-form[hidden],.tg-closed[hidden]{display:none}
+.tg-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.tg-product{display:flex;flex-direction:column;min-width:0}
+.tg-photo{margin:0;aspect-ratio:4/5;background:#eeece4;overflow:hidden}
+.tg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(.98) brightness(1.02)}
+.tg-product-body{display:flex;flex-direction:column;flex:1;padding-top:22px}
+.tg-product h2{font-family:'DAM Editorial',Georgia,serif;font-size:30px;letter-spacing:-.01em;line-height:1.15;margin:0 0 6px}
+.tg-price{font-size:13px;letter-spacing:.14em;margin:0 0 14px}
+.tg-desc{font-size:15px;line-height:1.7;color:var(--muted);margin:0 0 22px}
+.tg-desc strong{font-weight:400;color:var(--ink);letter-spacing:.02em}
+.tg-stepper{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.tg-qty-label{margin-right:auto;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.tg-max{color:var(--muted);letter-spacing:.06em;text-transform:none}
+.tg-step{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #b6b3a8;background:none;font-size:20px;font-weight:300;line-height:1;transition:background .2s,color .2s}
+.tg-step:hover:not(:disabled){background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.tg-step:disabled{opacity:.3;cursor:not-allowed}
+.tg-qty{min-width:2.4ch;text-align:center;font-family:'DAM Editorial',Georgia,serif;font-size:22px}
+.tg-product.is-selected .tg-stepper{border-top-color:var(--ink)}
+.tg-details{max-width:640px;margin:60px auto 0;display:grid;gap:36px}
+.tg-subhead,.tg-slots legend{font-family:'DAM Editorial',Georgia,serif;font-size:25px;letter-spacing:-.01em;line-height:1.2;margin:0 0 14px;padding:0}
+.tg-slot{display:flex;align-items:center;gap:14px;margin:0 0 10px;padding:16px 18px;border:1px solid #c9c6bb;background:#fbfaf5;cursor:pointer;font-size:14px;color:var(--muted)}
+.tg-slot input{flex:none;width:20px;height:20px;margin:0;padding:0;accent-color:var(--ink);cursor:pointer}
+.tg-slot strong{display:block;font-family:'DAM Editorial',Georgia,serif;font-weight:400;font-size:18px;color:var(--ink);line-height:1.3}
+.tg-slot:has(input:checked){border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.tg-slot:has(input:disabled){cursor:default}
+.tg-location p,.tg-thanks-details p{margin:0 0 8px}
+.tg-link{display:inline-block;font-size:14px;border-bottom:1px solid var(--ink)}
+.tg-link:hover{opacity:.7}
+.tg-name{margin:0;font-family:'DAM Editorial',Georgia,serif;font-size:25px;letter-spacing:-.01em}
+.tg-name input{font-family:Arial,Helvetica,sans-serif;margin-top:12px;letter-spacing:0}
+.tg-checkout{padding-top:28px;border-top:1px solid var(--line)}
+.tg-summary{font-size:15px;margin:0 0 16px}
+.tg-submit{display:block;width:100%;padding:17px 20px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
+.tg-submit:hover:not(:disabled){background:#45433d}
+.tg-submit:disabled{background:#bdbab0;border-color:#bdbab0;cursor:not-allowed}
+.tg-checkout .form-note{margin:12px 0 0;text-align:center}
+.tg-status{font-size:14px;margin:12px 0 0;text-align:center}
+.tg-status:empty{display:none}
+.tg-policy p{font-size:14px;line-height:1.7;color:var(--muted)}
+.tg-policy a{border-bottom:1px solid}
+.tg-closed{max-width:640px;margin:0 auto;padding:40px 30px;border:1px solid var(--line);text-align:center;font-family:'DAM Editorial',Georgia,serif;font-size:22px;line-height:1.55}
+.tg-closed p{margin:0}
+.tg-closed a{border-bottom:1px solid;overflow-wrap:anywhere}
+.tg-thanks-details{max-width:640px;margin:0 auto;display:grid;gap:36px}
+.tg-thanks-details .form-note{margin-top:4px}
+.tg-back{text-align:center;margin:8px 0 0}
+@media(max-width:700px){
+.tg-main{padding:0 16px 52px}
+.tg-intro{margin-bottom:36px}
+.tg-intro h1{font-size:clamp(40px,11vw,52px)}
+.tg-lede{font-size:17px}
+.tg-products{grid-template-columns:1fr;gap:48px}
+.tg-product h2{font-size:27px}
+.tg-details{margin-top:48px;gap:32px}
+.tg-subhead,.tg-slots legend,.tg-name{font-size:23px}
+.tg-closed{padding:30px 20px;font-size:19px}
+}

@@ -9,8 +9,11 @@ A single static page hosted on GitHub Pages. No build step and no dependencies.
 | Path | Purpose |
 |---|---|
 | `index.html` | The page: header, hero, gallery, studio copy, footer, image viewer and inquiry form |
-| `style.css` | All styles |
+| `style.css` | All styles (Thanksgiving pages in the section at the end) |
 | `script.js` | Image viewer, inquiry form (opens a prefilled email draft) and footer year |
+| `thanksgiving.html` | Thanksgiving pre-order page (unlisted, `noindex`): products, pickup slot, name, checkout |
+| `thanksgiving-thanks.html` | Confirmation page Square redirects to after payment |
+| `thanksgiving.js` | Pre-order form logic: calls the checkout API ([preorder-api](https://github.com/damfloralstudio/preorder-api)), closed state, Umami analytics events |
 | `assets/` | Photos, logo and hero title artwork |
 | `assets/fonts/` | Self-hosted fonts and their licenses |
 | `CNAME` | Custom domain for GitHub Pages. **Do not delete or rename.** |
