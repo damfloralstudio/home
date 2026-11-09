@@ -4,6 +4,9 @@ dialog.querySelector('.close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', e => {if(e.target === dialog){const r = dialog.getBoundingClientRect();if(e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();}});
 dialog.addEventListener('close', () => {document.body.classList.remove('modal-open');opener?.focus();});
 document.querySelector('#year').textContent = new Date().getFullYear();
+// Thanksgiving pre-order promo: hide automatically once pre-orders close (Sun Nov 15, 11:59pm ET).
+const preorderPromo = document.querySelector('#tg-promo');
+if (preorderPromo && Date.now() > Date.parse('2026-11-15T23:59:59-05:00')) preorderPromo.hidden = true;
 
 const requestDialog = document.querySelector('.request-dialog');
 const requestForm = document.querySelector('#request-form');
