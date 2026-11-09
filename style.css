@@ -114,3 +114,15 @@
 .tg-subhead,.tg-slots legend,.tg-name{font-size:23px}
 .tg-closed{padding:30px 20px;font-size:19px}
 }
+
+/* ===== Homepage Thanksgiving pre-order promo (poster + button); hidden by script.js after Nov 15 ===== */
+.tg-promo{max-width:680px;margin:0 auto;padding:8px 5% 6px;text-align:center}
+.tg-promo[hidden]{display:none}
+.tg-promo-poster{display:block;max-width:601px;margin:0 auto}
+.tg-promo-poster img{width:100%;height:auto}
+.tg-promo-poster:hover{opacity:.92}
+.tg-promo-button{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:16px 28px;background:var(--ink);border:1px solid var(--ink);color:var(--paper);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
+.tg-promo-button:hover{background:#45433d;opacity:1}
+.tg-promo-button span{font-size:16px;letter-spacing:0;line-height:1}
+.tg-promo-note{margin:12px 0 0;font-size:13px;letter-spacing:.04em;color:var(--muted)}
+@media(max-width:600px){.tg-promo{padding:4px 16px 0}.tg-promo-button{margin-top:18px;padding:15px 22px;font-size:12px;letter-spacing:.12em}.tg-promo-note{font-size:12px}}
