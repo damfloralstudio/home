@@ -5,7 +5,7 @@
 // names (with "· Designer’s Choice") are on the product cards and in Square.
 
 const CHECKOUT_URL = 'https://preorder-api.damfloralstudio.workers.dev/api/checkout';
-const CLOSES_AT = '2026-11-15T23:59:59-05:00';
+const CLOSES_AT = '2026-11-18T23:59:59-05:00';
 const REQUEST_TIMEOUT_MS = 15000;
 const ERROR_MESSAGE = 'Something went wrong. Please try again or email damfloralstudio@gmail.com.';
 const SUBMIT_LABEL = 'Continue to secure checkout';
