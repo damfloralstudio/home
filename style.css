@@ -115,14 +115,23 @@
 .tg-closed{padding:30px 20px;font-size:19px}
 }
 
-/* ===== Homepage Thanksgiving pre-order promo (poster + button); hidden by script.js after Nov 18 ===== */
-.tg-promo{max-width:1400px;margin:0 auto;padding:8px 5% 6px;text-align:center}
-.tg-promo[hidden]{display:none}
-.tg-promo-poster{display:block;max-width:1150px;margin:0 auto}
-.tg-promo-poster img{width:100%;height:auto}
-.tg-promo-poster:hover{opacity:.92}
-.tg-promo-button{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:16px 28px;background:var(--ink);border:1px solid var(--ink);color:var(--paper);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transition:background .2s}
-.tg-promo-button:hover{background:#45433d;opacity:1}
-.tg-promo-button span{font-size:16px;letter-spacing:0;line-height:1}
-.tg-promo-note{margin:12px 0 0;font-size:13px;letter-spacing:.04em;color:var(--muted)}
-@media(max-width:600px){.tg-promo{padding:4px 0 0}.tg-promo-note{padding:0 16px}.tg-promo-button{margin-top:18px;padding:15px 22px;font-size:12px;letter-spacing:.12em}.tg-promo-note{font-size:12px}}
+/* ===== Custom order page (order.html) additions ===== */
+.tg-subtitle{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.tg-more{text-align:center;font-size:14px;color:var(--muted);margin:28px 0 0}
+.tg-name .form-note{display:block;font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:0;margin:8px 0 0}
+.tg-address[hidden],.tg-zone[hidden],.tg-submit[hidden],.tg-link[hidden]{display:none}
+.tg-address{border:0;margin:0;padding:0;min-width:0}
+.tg-address legend{margin-bottom:16px}
+.tg-address label{font-size:14px;margin-bottom:14px}
+.tg-zone{margin-top:4px;padding:16px 18px;border:1px solid #c9c6bb;background:#fbfaf5;font-size:15px}
+.tg-zone p{margin:0}
+.tg-zone[data-mode="checkout"]{border-color:var(--ink)}
+.tg-zone[data-mode="unavailable"],.tg-zone[data-mode="error"]{color:var(--muted)}
+.tg-zone .tg-link{margin-top:12px}
+
+/* ===== Homepage entry points to order.html ===== */
+.header-order{font-size:12px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:8px;border-bottom:1px solid var(--ink);min-height:0!important;min-width:0!important;padding:2px 0}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.hero-order{display:inline-flex;align-items:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:14px 22px;background:var(--ink);border:1px solid var(--ink);color:var(--paper);transition:background .2s}
+.hero-order:hover{background:#45433d;opacity:1}
+@media(max-width:600px){.header-order{font-size:11px;letter-spacing:.1em;margin-right:6px}.hero-order{font-size:11px;letter-spacing:.11em;padding:14px 17px}}

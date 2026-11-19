@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Flowers | DAM Floral Studio</title>
+<meta name="description" content="Order a designer’s-choice bouquet or arrangement from DAM Floral Studio, at least 3 days ahead, for pickup in Downtown Hoboken or delivery in Hoboken.">
+<meta name="theme-color" content="#f6f5ee">
+<meta property="og:title" content="Order Flowers — DAM Floral Studio"><meta property="og:description" content="Designer’s-choice bouquets and arrangements for events, photoshoots and gatherings. Pickup in Downtown Hoboken or delivery in Hoboken."><meta property="og:type" content="website"><meta property="og:url" content="https://damfloralstudio.com/order.html"><meta property="og:image" content="https://damfloralstudio.com/assets/botanical.webp"><meta property="og:site_name" content="DAM Floral Studio">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1289bc39-6ae9-4569-83f2-73a3d4c60259" data-domains="damfloralstudio.com"></script>
+<script src="order.js" defer></script>
+</head>
+<body class="tg-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="header"><a class="brand original-logo" href="./" aria-label="DAM Floral Studio home"><img src="assets/logo.png" alt="DAM Floral Studio"></a><div class="header-icons"><a href="https://www.instagram.com/dam.floral/" target="_blank" rel="noopener noreferrer" aria-label="Instagram — DAM Floral Studio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r=".8" fill="currentColor" stroke="none"/></svg></a><a href="mailto:damfloralstudio@gmail.com" aria-label="Email DAM Floral Studio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13"/><path d="m3 6 9 7 9-7"/></svg></a></div></header>
+
+<main id="main" class="tg-main">
+  <section class="tg-intro" aria-labelledby="tg-title">
+    <p class="eyebrow">Custom orders</p>
+    <h1 id="tg-title">Flowers, made to order</h1>
+    <p class="tg-lede">Designer’s-choice bouquets and arrangements for events, photoshoots and gatherings. Please order at least 3&nbsp;days ahead, for pickup in Downtown Hoboken or delivery in Hoboken.</p>
+  </section>
+
+  <section class="tg-closed" id="tg-closed" hidden>
+    <p>Online ordering is paused. Please contact us at <a href="mailto:damfloralstudio@gmail.com">damfloralstudio@gmail.com</a>.</p>
+  </section>
+
+  <form class="tg-form" id="tg-form" novalidate>
+    <fieldset class="tg-products">
+      <legend class="sr-only">Choose your flowers</legend>
+
+      <article class="tg-product" data-product="bouquet">
+        <figure class="tg-photo"><img src="assets/sunflower.webp" width="963" height="1440" alt="Seasonal bouquet with yellow sunflowers"></figure>
+        <div class="tg-product-body">
+          <h2 id="bouquet-name">Bouquet</h2>
+          <p class="tg-subtitle">Designer’s Choice</p>
+          <p class="tg-price">$100</p>
+          <div class="tg-desc"><p>A hand-tied bouquet of seasonal stems, composed by our designer.</p></div>
+          <div class="tg-stepper" role="group" aria-labelledby="bouquet-name bouquet-qty-label">
+            <span class="tg-qty-label" id="bouquet-qty-label">Quantity <span class="tg-max">(max 3)</span></span>
+            <button type="button" class="tg-step" data-step="-1" aria-label="Remove one Bouquet">−</button>
+            <output class="tg-qty" aria-live="polite">0</output>
+            <button type="button" class="tg-step" data-step="1" aria-label="Add one Bouquet">+</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="tg-product" data-product="arrangement">
+        <figure class="tg-photo"><img src="assets/botanical.webp" width="963" height="1440" alt="Airy garden flowers in white, lilac and warm orange"></figure>
+        <div class="tg-product-body">
+          <h2 id="arrangement-name">Arrangement</h2>
+          <p class="tg-subtitle">Designer’s Choice</p>
+          <p class="tg-price">$200</p>
+          <div class="tg-desc"><p>Seasonal flowers arranged in a vessel, composed by our designer.</p></div>
+          <div class="tg-stepper" role="group" aria-labelledby="arrangement-name arrangement-qty-label">
+            <span class="tg-qty-label" id="arrangement-qty-label">Quantity <span class="tg-max">(max 2)</span></span>
+            <button type="button" class="tg-step" data-step="-1" aria-label="Remove one Arrangement">−</button>
+            <output class="tg-qty" aria-live="polite">0</output>
+            <button type="button" class="tg-step" data-step="1" aria-label="Add one Arrangement">+</button>
+          </div>
+        </div>
+      </article>
+    </fieldset>
+    <p class="tg-more">Need more, or something specific? <a class="tg-link" href="./#inquiry" id="tg-more-inquiry">Send us an inquiry</a></p>
+
+    <div class="tg-details">
+      <label class="tg-name">Date
+        <input name="date" id="tg-date" type="date" required aria-describedby="tg-date-note">
+        <span class="form-note" id="tg-date-note">Please order at least 3 days ahead. We’ll contact you to arrange a time.</span>
+      </label>
+
+      <fieldset class="tg-slots">
+        <legend>Pickup or delivery</legend>
+        <label class="tg-slot"><input type="radio" name="method" value="pickup"><span><strong>Pickup in Downtown Hoboken ($0)</strong>We’ll send the exact pickup address and arrange a time after your order.</span></label>
+        <label class="tg-slot"><input type="radio" name="method" value="delivery"><span><strong>Delivery</strong>$15 in Hoboken. Nearby areas by inquiry.</span></label>
+      </fieldset>
+
+      <fieldset class="tg-address" id="tg-address" hidden>
+        <legend class="tg-subhead">Delivery address</legend>
+        <label>Street address<input name="line1" id="tg-line1" autocomplete="address-line1" maxlength="100"></label>
+        <div class="form-grid">
+          <label>Apt / suite (optional)<input name="line2" id="tg-line2" autocomplete="address-line2" maxlength="60"></label>
+          <label>ZIP code<input name="zip" id="tg-zip" autocomplete="postal-code" inputmode="numeric" maxlength="5" pattern="[0-9]{5}"></label>
+        </div>
+        <div class="tg-zone" id="tg-zone" aria-live="polite" hidden>
+          <p id="tg-zone-message"></p>
+          <a class="tg-link" href="./#inquiry" id="tg-zone-inquiry" hidden>Send an inquiry</a>
+        </div>
+      </fieldset>
+
+      <label class="tg-name">Name for your order
+        <input name="name" id="tg-name" autocomplete="name" maxlength="100" required>
+      </label>
+
+      <div class="tg-checkout">
+        <p class="tg-summary" id="tg-summary" aria-live="polite">Choose at least one item to continue.</p>
+        <button class="tg-submit" id="tg-submit" type="submit" disabled>Continue to secure checkout</button>
+        <p class="form-note">Payment is processed securely by Square.</p>
+        <p class="tg-status" id="tg-status" role="status"></p>
+      </div>
+    </div>
+  </form>
+</main>
+
+<footer><a class="footer-name" href="./">DAM <span>Floral Studio</span></a><p>New Jersey | New York City</p><a href="https://www.instagram.com/dam.floral/" target="_blank" rel="noopener noreferrer">Instagram / @dam.floral</a><p class="copyright">© <span id="year">2026</span> DAM Floral Studio · We use privacy-friendly, cookie-free analytics.</p></footer>
+</body>
+</html>
