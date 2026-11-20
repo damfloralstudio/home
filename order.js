@@ -126,9 +126,10 @@ function initOrder(form) {
     const parts = itemParts();
     const fee = deliveryFee();
     if (parts.length) {
-      const segments = [...parts];
+      // Same order as Square's checkout: flowers-only subtotal, then delivery, then tax.
+      const segments = [...parts, `Subtotal $${productsSubtotal().toFixed(2)}`];
       if (fee) segments.push(`Delivery $${fee.toFixed(2)}`);
-      segments.push(`Subtotal $${(productsSubtotal() + fee).toFixed(2)}`, 'NJ sales tax added at checkout');
+      segments.push('NJ sales tax added at checkout');
       summary.textContent = segments.join(' · ');
     } else {
       summary.textContent = 'Choose at least one item to continue.';
