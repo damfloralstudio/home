@@ -42,6 +42,16 @@ function dateLabel(ymd) {
   const [y, m, d] = ymd.split('-').map(Number);
   return new Date(Date.UTC(y, m - 1, d, 12)).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
 }
+// Analytics only: how far ahead the date is, in ranges, and its weekday. Never the date itself.
+function leadBucket(ymd) {
+  const day = s => { const [y, m, d] = s.split('-').map(Number); return Date.UTC(y, m - 1, d) / 86400000; };
+  const days = day(ymd) - day(easternToday());
+  return days < 7 ? '3-6d' : days < 14 ? '1-2w' : days < 30 ? '2-4w' : '1m+';
+}
+function weekday(ymd) {
+  const [y, m, d] = ymd.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d, 12)).toLocaleDateString('en-US', { weekday: 'short', timeZone: 'UTC' });
+}
 
 const form = document.querySelector('#tg-form');
 if (form) initOrder(form);
@@ -170,10 +180,11 @@ function initOrder(form) {
 
   // ---- Inquiry handoff (sessionStorage, never the URL) ----
 
-  function saveInquiryPrefill() {
+  function saveInquiryPrefill(source) {
     const parts = itemParts();
     const m = method();
-    const prefill = { service: 'Custom order' };
+    // source (order_handoff / order_more) lets the homepage attribute the inquiry in analytics.
+    const prefill = { service: 'Custom order', source };
     if (nameInput.value.trim()) prefill.name = nameInput.value.trim();
     if (dateOk()) prefill.date = dateInput.value;
     if (m === 'delivery') {
@@ -190,7 +201,7 @@ function initOrder(form) {
 
   for (const link of [zoneInquiry, moreInquiry]) {
     link.addEventListener('click', () => {
-      saveInquiryPrefill();
+      saveInquiryPrefill(link === zoneInquiry ? 'order_handoff' : 'order_more');
       track('inquiry_handoff', { zone: link === zoneInquiry ? (quote?.zone || 'none') : 'more' });
     });
   }
@@ -205,12 +216,15 @@ function initOrder(form) {
     if (next < 0 || next > PRODUCTS[key].max) return;
     quantities[key] = next;
     markStarted();
+    track('quantity_change', { product: key, quantity: next, direction: Number(button.dataset.step) > 0 ? 'add' : 'remove' });
     status.textContent = '';
     render();
   });
 
   form.addEventListener('change', event => {
     if (event.target.name === 'method' || event.target.name === 'date') markStarted();
+    if (event.target.name === 'method') track('method_select', { method: method() });
+    if (event.target.name === 'date' && dateOk()) track('date_select', { lead: leadBucket(dateInput.value), weekday: weekday(dateInput.value) });
     if (event.target.name === 'method' && method() === 'delivery') checkZip();
     render();
   });
@@ -244,7 +258,15 @@ function initOrder(form) {
       name: nameInput.value.trim(),
     };
     if (m === 'delivery') body.address = { line1: line1Input.value.trim(), line2: line2Input.value.trim(), zip: zip() };
-    track('checkout_click', { bouquets: quantities.bouquet, arrangements: quantities.arrangement, method: m, subtotal: productsSubtotal() + deliveryFee() });
+    track('checkout_click', {
+      bouquets: quantities.bouquet,
+      arrangements: quantities.arrangement,
+      method: m,
+      zone: m === 'delivery' ? (quote?.zone || 'none') : 'pickup',
+      lead: leadBucket(dateInput.value),
+      products: productsSubtotal(),
+      delivery: deliveryFee(),
+    });
     status.textContent = '';
     setSubmitting(true, 'Preparing checkout…');
 
