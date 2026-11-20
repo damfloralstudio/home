@@ -4,9 +4,6 @@ dialog.querySelector('.close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', e => {if(e.target === dialog){const r = dialog.getBoundingClientRect();if(e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();}});
 dialog.addEventListener('close', () => {document.body.classList.remove('modal-open');opener?.focus();});
 document.querySelector('#year').textContent = new Date().getFullYear();
-// Thanksgiving pre-order promo: hide automatically once pre-orders close (Wed Nov 18, 11:59pm ET).
-const preorderPromo = document.querySelector('#tg-promo');
-if (preorderPromo && Date.now() > Date.parse('2026-11-18T23:59:59-05:00')) preorderPromo.hidden = true;
 
 const requestDialog = document.querySelector('.request-dialog');
 const requestForm = document.querySelector('#request-form');
@@ -17,6 +14,24 @@ document.querySelectorAll('[data-request]').forEach(button => button.addEventLis
  document.querySelector('#request-status').textContent = '';
  requestDialog.showModal(); document.body.classList.add('modal-open');
 }));
+// Arriving from the order page (order.html → ./#inquiry): open the inquiry form, filled in from the order.
+// Details are handed over in sessionStorage (this tab only), read once and cleared; they are never in the URL.
+function openInquiryFromOrder() {
+ if (location.hash !== '#inquiry') return;
+ history.replaceState(null, '', location.pathname + location.search);
+ let prefill = {};
+ try { prefill = JSON.parse(sessionStorage.getItem('dam-inquiry-prefill') || '{}') || {}; sessionStorage.removeItem('dam-inquiry-prefill'); } catch (err) { prefill = {}; }
+ requestForm.elements.service.value = 'Custom order';
+ for (const field of ['name', 'date', 'location', 'budget', 'message']) {
+  const input = requestForm.elements[field];
+  if (input && typeof prefill[field] === 'string') input.value = prefill[field].slice(0, input.maxLength > 0 ? input.maxLength : 4000);
+ }
+ document.querySelector('#request-status').textContent = '';
+ requestDialog.showModal(); document.body.classList.add('modal-open');
+ (requestForm.elements.name.value ? requestForm.elements.email : requestForm.elements.name).focus();
+}
+openInquiryFromOrder();
+window.addEventListener('hashchange', openInquiryFromOrder);
 requestDialog.querySelector('.request-close').addEventListener('click', () => requestDialog.close());
 requestDialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); requestOpener?.focus(); });
 // Inquiries are delivered by Formspree (form action). Sent in the background so the visitor stays on the page.
